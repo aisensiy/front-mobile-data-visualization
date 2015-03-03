@@ -27,9 +27,9 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/baidumap', {
-        templateUrl: 'views/baidumap.html',
-        controller: 'BaidumapCtrl'
+      .when('/location', {
+        templateUrl: 'views/location.html',
+        controller: 'LocationCtrl'
       })
       .otherwise({
         redirectTo: '/'

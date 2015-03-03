@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name frontMobileDataVisualizationApp.controller:BaidumapCtrl
+ * @name frontMobileDataVisualizationApp.controller:LocationCtrl
  * @description
- * # BaidumapCtrl
+ * # LocationCtrl
  * Controller of the frontMobileDataVisualizationApp
  */
 angular.module('frontMobileDataVisualizationApp')
-  .controller('BaidumapCtrl', ['$scope', function ($scope) {
+  .controller('LocationCtrl', ['$scope', function ($scope) {
       var locations = [
         ['20141201081101', '40.46181 115.96892'],
         ['20141201081105', '40.46181 115.96892'],

@@ -126,7 +126,7 @@ var MapController = (function() {
 angular.module('frontMobileDataVisualizationApp')
   .directive('baidumap', function () {
     return {
-      template: '<div id="map" style="height: 300px;"></div>',
+      template: '<div id="map" style="height: 500px;"></div>',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         var raw_points = JSON.parse(attrs.locations).map(function(point) {
