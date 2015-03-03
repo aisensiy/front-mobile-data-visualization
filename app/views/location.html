@@ -1,1 +1,10 @@
-<baidumap locations={{locations}}></baidumap>
+<div class="row">
+<div class="col-md-10">
+  <baidumap locations={{locations}}></baidumap>
+</div>
+<div class="col-md-2">
+  <p ng-repeat="location in locations">
+  {{location[0]}} <br>
+  {{location[1]}}
+  </p>
+</div></div>
