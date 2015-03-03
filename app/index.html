@@ -23,13 +23,7 @@
     <div class="fluid-container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-<<<<<<< HEAD
-=======
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
           <li><a ng-href="#/baidumap">BaiduMap</a></li>
->>>>>>> add route for baidumap
         </ul>
         <h3 class="text-muted">frontMobileDataVisualization</h3>
       </div>
@@ -41,11 +35,11 @@
       </div>
     </div>
 
+    <script type="text/javascript"
+src="scripts/vendors/baidumap.js"></script>
+    <script type="text/javascript"
+src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
 
-    <script type="text/javascript"
-              src="scripts/vendors/baidumap.js"></script>
-    <script type="text/javascript"
-            src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        /*
@@ -83,6 +77,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/baidumap.js"></script>
+        <script src="scripts/directives/baidumap.js"></script>
         <!-- endbuild -->
 </body>
 </html>
