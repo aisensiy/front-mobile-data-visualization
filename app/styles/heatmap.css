@@ -1,0 +1,51 @@
+/* heatmap */
+rect.bordered {
+  stroke: #E6E6E6;
+  stroke-width:2px;
+}
+
+text.mono {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+  fill: #aaa;
+}
+
+text.axis-workweek {
+  fill: #000;
+}
+
+text.axis-worktime {
+  fill: #000;
+}
+
+
+.q0 {
+  background-color: #ededed;
+  fill: #ededed;
+  stroke: #ededed
+}
+
+.q1 {
+  background-color: #dae289;
+  fill: #dae289
+}
+
+.q2 {
+  background-color: #cedb9c;
+  fill: #9cc069
+}
+
+.q3 {
+  background-color: #b5cf6b;
+  fill: #669d45
+}
+
+.q4 {
+  background-color: #637939;
+  fill: #637939
+}
+
+.q5 {
+  background-color: #3b6427;
+  fill: #3b6427
+}
