@@ -23,4 +23,11 @@ angular
         templateUrl: 'views/location.html',
         controller: 'LocationCtrl'
       })
+      .when('/net', {
+        templateUrl: 'views/net.html',
+        controller: 'NetCtrl'
+      })
+      .otherwise({
+        redirectTo: '/net'
+      });
   });
