@@ -32,6 +32,7 @@ angular.module('frontMobileDataVisualizationApp')
         var height = gridSize * 7;
         var buckets = 9;
         var colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"];
+        var colors = ['#fff5f0', '#fee0d2', '#fcbba1', '#fc9272', '#fb6a4a', '#ef3b2c', '#cb181d', '#a50f15', '#67000d'];
         var days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 
         var svg = d3.select(element[0]).append('svg').style('width', '100%')
