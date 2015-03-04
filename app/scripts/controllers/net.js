@@ -191,12 +191,12 @@ angular.module('frontMobileDataVisualizationApp')
       {day: 9, value: 1},
       {day: 10, value: 1},
       {day: 11, value: 1},
-      {day: 12, value: 1},
+      {day: 12, value: 5},
       {day: 13, value: 1},
       {day: 14, value: 1},
       {day: 15, value: 1},
       {day: 16, value: 1},
-      {day: 17, value: 1},
+      {day: 17, value: 2},
       {day: 18, value: 1},
       {day: 19, value: 1},
       {day: 20, value: 1},
@@ -206,10 +206,10 @@ angular.module('frontMobileDataVisualizationApp')
       {day: 24, value: 1},
       {day: 25, value: 1},
       {day: 26, value: 1},
-      {day: 27, value: 1},
+      {day: 27, value: 3},
       {day: 28, value: 1},
       {day: 29, value: 1},
       {day: 30, value: 1},
-      {day: 31, value: 1}
+      {day: 31, value: 2}
     ];
   });
