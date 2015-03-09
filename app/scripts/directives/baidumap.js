@@ -17,34 +17,64 @@ var MapController = (function() {
     var points = raw2points(raw);
 
     var center = get_points_center(points);
-    console.log(center);
     map.panTo(new BMap.Point(center[0], center[1]));
 
     var curve = new BMapLib.CurveLine(
       points.map(function(point) { return new BMap.Point(point[0], point[1]); }),
-      {strokeColor: "#00BFFF", strokeWeight:6, strokeOpacity:0.5});
+      {strokeColor: "#00BFFF", strokeWeight:6, strokeOpacity:0.3});
     map.addOverlay(curve);
 
     var bluemarker = new BMap.Icon(
         "/images/bluemarker.png",
         new BMap.Size(16, 16),
         {anchor: new BMap.Size(8, 16)});
+
     var markers = [];
+    var label_texts = {};
+
     points.forEach(function(point) {
-      point = new BMap.Point(point[0], point[1]);
-      var marker = new BMap.Marker(point, {icon: bluemarker});
+      var map_point = new BMap.Point(point[0], point[1]);
+      var marker = new BMap.Marker(map_point, {icon: bluemarker});
       map.addOverlay(marker);
       markers.push(marker);
+      if (label_texts[point[0], point[1]]) {
+        label_texts[point[0], point[1]].times.push(point[2] + '-' + point[3]);
+      } else {
+        label_texts[point[0], point[1]] = {
+          point: map_point,
+          times: [point[2] + '-' + point[3]]
+        };
+      }
     });
 
+    var labels = [];
+    for (points in label_texts) {
+      var map_point = label_texts[points].point;
+      var times = label_texts[points].times;
+      var opts = {
+        position: map_point,
+        offset: new BMap.Size(15, -10)
+      };
+      var label = new BMap.Label(times.join('<br />'), opts);
+      label.setStyle({
+        color : "red",
+        fontSize : "12px",
+        background: 'none',
+        border: 0,
+        fontFamily:"微软雅黑"
+      });
+      map.addOverlay(label);
+      labels.push(label);
+    }
+
     markers.push(curve);
-    this.overlays = markers;
+    this.overlays = markers.concat(labels);
   };
 
   function raw2points(raw) {
     return raw.map(function(raw_point) {
-      var pair = raw_point.split(' ');
-      return [+pair[1], +pair[0]];
+      var pair = raw_point.location.split(' ');
+      return [+pair[0], +pair[1], raw_point.start_time, raw_point.end_time];
     });
   }
 
@@ -129,15 +159,13 @@ angular.module('frontMobileDataVisualizationApp')
       template: '<div id="map" style="height: 500px;"></div>',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-        var raw_points = JSON.parse(attrs.locations).map(function(point) {
-          return point[1];
-        });
+        var raw_points = JSON.parse(attrs.locations);
         var map = new BMap.Map('map');
         var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
         map.enableScrollWheelZoom()
     map.enableContinuousZoom()
     map.addControl(new BMap.NavigationControl())
-        map.centerAndZoom(point, 15);
+        map.centerAndZoom(point, 13);
         var map_controller = new MapController();
         map_controller.render(map, raw_points);
       }
