@@ -16,8 +16,8 @@ angular.module('frontMobileDataVisualizationApp')
       },
       link: function postLink(scope, element, attrs) {
         function clock_to_num(str) {
-          var split = str.split(':');
-          return +split[0] * 60 + +split[1];
+          var split = str.slice(8, 12)
+          return +split.slice(0, 2) * 60 + +split.slice(2);
         }
 
         var gridWidth = 25;
@@ -79,19 +79,19 @@ angular.module('frontMobileDataVisualizationApp')
             var one_day_data = entity.locations.map(function(elem) {
               no_duplicated_locations[elem.location] = true;
               return {
-                from: clock_to_num(elem.from),
-                to: clock_to_num(elem.to),
+                start_time: clock_to_num(elem.start_time),
+                end_time: clock_to_num(elem.end_time),
                 location: elem.location,
-                title: elem.from + '-' + elem.to
+                title: elem.start_time + '-' + elem.end_time
               };
             });
             var color = d3.scale.category20();
             svg.selectAll('.day' + date).data(one_day_data)
               .enter().append('rect')
               .attr('x', function(d) { return gridWidth * (date - 1); })
-              .attr('y', function(d) { return y(d.from); })
+              .attr('y', function(d) { return y(d.start_time); })
               .attr('width', gridWidth)
-              .attr('height', function(d) { return y(d.to) - y(d.from); })
+              .attr('height', function(d) { return y(d.end_time) - y(d.start_time); })
               .attr('title', function(d) { return d.title; })
               .attr('fill', function(d) { return color(d.location); });
           });

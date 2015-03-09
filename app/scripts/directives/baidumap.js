@@ -72,6 +72,9 @@ var MapController = (function() {
   };
 
   function raw2points(raw) {
+    if (!raw) {
+      return [];
+    }
     return raw.map(function(raw_point) {
       var pair = raw_point.location.split(' ');
       return [+pair[0], +pair[1], raw_point.start_time, raw_point.end_time];
@@ -154,20 +157,39 @@ var MapController = (function() {
  * # baidumap
  */
 angular.module('frontMobileDataVisualizationApp')
-  .directive('baidumap', function () {
+  .directive('baidumap', ['$window', function ($window) {
     return {
       template: '<div id="map" style="height: 500px;"></div>',
       restrict: 'E',
+      scope: {
+        'data': '='
+      },
       link: function postLink(scope, element, attrs) {
-        var raw_points = JSON.parse(attrs.locations);
         var map = new BMap.Map('map');
         var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
         map.enableScrollWheelZoom()
-    map.enableContinuousZoom()
-    map.addControl(new BMap.NavigationControl())
+        map.enableContinuousZoom()
+        map.addControl(new BMap.NavigationControl())
         map.centerAndZoom(point, 13);
-        var map_controller = new MapController();
-        map_controller.render(map, raw_points);
+
+        window.onresize = function() {
+          scope.$apply();
+        };
+
+        scope.$watch(function() {
+          return angular.element($window)[0].innerWidth;
+        }, function() {
+          scope.render(scope.data);
+        });
+
+        scope.$watch('data', function(newVals, oldVals) {
+          return scope.render(newVals);
+        });
+
+        scope.render = function(data) {
+          var map_controller = new MapController();
+          map_controller.render(map, data);
+        };
       }
     };
-  });
+  }]);
