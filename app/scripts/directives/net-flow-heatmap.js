@@ -17,11 +17,11 @@ angular.module('frontMobileDataVisualizationApp')
         var gridSize = 40;
         var margin = { top: 25, right: 0, bottom: gridSize + 10, left: 30 };
         var legendElementWidth = gridSize * 2;
-        var height = gridSize * 7;
+        var height = gridSize * 31;
         var buckets = 9;
         var colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"];
         var colors = ['#fff5f0', '#fee0d2', '#fcbba1', '#fc9272', '#fb6a4a', '#ef3b2c', '#cb181d', '#a50f15', '#67000d'];
-        var days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+        var days = d3.range(31);
         var times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
 
         var svg = d3.select(element[0]).append('svg').style('width', '100%')
@@ -78,7 +78,7 @@ angular.module('frontMobileDataVisualizationApp')
           var heatMap = svg.selectAll(".hour")
               .data(data)
               .enter().append("rect")
-              .attr("x", function(d) { return (d.hour - 1) * gridSize; })
+              .attr("x", function(d) { return (d.hour) * gridSize; })
               .attr("y", function(d) { return (d.day - 1) * gridSize; })
               .attr("rx", 4)
               .attr("ry", 4)

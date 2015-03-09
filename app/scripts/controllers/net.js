@@ -9,6 +9,13 @@
  */
 angular.module('frontMobileDataVisualizationApp')
   .controller('NetCtrl', ['api', '$scope', function (api, $scope) {
-    $scope.data = api.gprs_count_by_hour();
-    $scope.week_data = api.gprs_count_by_day();
+    api.gprs_count_by_hour('58661900').success(function(data) {
+      $scope.data = data;
+    });
+    api.gprs_count_by_day('58661900').success(function(data) {
+      $scope.week_data = data.map(function(elem) {
+        elem.day = parseInt(elem.day);
+        return elem;
+      });
+    });
   }]);
