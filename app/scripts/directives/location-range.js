@@ -24,7 +24,7 @@ angular.module('frontMobileDataVisualizationApp')
         var width = gridWidth * 31;
         var margin = { top: 25, right: 0, bottom: 40, left: 30 };
         var height = 400 - margin.top - margin.bottom;
-        var times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"];
+        var times = d3.range(24);
 
         var svg = d3.select(element[0]).append('svg').style('width', '100%')
           .attr('height', height + margin.top + margin.bottom)
@@ -68,9 +68,9 @@ angular.module('frontMobileDataVisualizationApp')
             .enter().append('text')
             .text(function(d) { return d; })
             .attr('x', 0)
-            .attr('y', function(d, i) { return i * (gridWidth / 2); })
+            .attr('y', function(d, i) { return y(i * 60); })
             .style("text-anchor", "end")
-            .attr("transform", "translate(-6," + gridWidth / 3 + ")");
+            .attr("transform", "translate(-6," + gridWidth / 1.5 + ")");
 
           var heatmaps = [];
           data.forEach(function(entity) {
