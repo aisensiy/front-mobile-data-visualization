@@ -16,5 +16,41 @@ angular.module('frontMobileDataVisualizationApp')
         ['20141201131811', '40.46181 115.96892'],
         ['20141201181100', '40.46181 115.96892']
       ];
+      var location_range_data = [
+        {
+          'date': 1,
+          'locations': [
+            { from: '08:13', to: '09:11', location: 'a' },
+            { from: '09:12', to: '12:11', location: 'b' },
+            { from: '12:12', to: '13:10', location: 'c' },
+            { from: '13:11', to: '17:49', location: 'b' },
+            { from: '17:50', to: '18:35', location: 'd' },
+            { from: '18:36', to: '19:33', location: 'a' },
+          ]
+        },
+        {
+          'date': 2,
+          'locations': [
+            { from: '08:13', to: '09:11', location: 'a' },
+            { from: '09:12', to: '12:11', location: 'b' },
+            { from: '12:12', to: '13:10', location: 'c' },
+            { from: '13:11', to: '17:49', location: 'b' },
+            { from: '17:50', to: '18:35', location: 'd' },
+            { from: '18:36', to: '19:33', location: 'a' },
+          ]
+        },
+        {
+          'date': 3,
+          'locations': [
+            { from: '08:13', to: '09:11', location: 'a' },
+            { from: '09:12', to: '12:11', location: 'b' },
+            { from: '12:12', to: '13:10', location: 'c' },
+            { from: '13:11', to: '17:49', location: 'b' },
+            { from: '17:50', to: '18:35', location: 'd' },
+            { from: '18:36', to: '19:33', location: 'a' },
+          ]
+        }
+      ];
       $scope.locations = locations;
+      $scope.location_range_data = location_range_data;
   }]);
