@@ -9,30 +9,8 @@
  */
 angular.module('frontMobileDataVisualizationApp')
   .controller('LocationCtrl', ['$scope', 'api', function ($scope, api) {
-      var locations = [
-        {
-          'location': '116.30944 39.82278',
-          'start_time': '20131201094713',
-          'end_time': '20131201112222'
-        },
-        {
-          'location': '116.39458 39.85150',
-          'start_time': '20131201134713',
-          'end_time': '20131201152222'
-        },
-        {
-          'location': '116.29458 39.80150',
-          'start_time': '20131201164713',
-          'end_time': '20131201182222'
-        },
-        {
-          'location': '116.30944 39.82278',
-          'start_time': '20131201214713',
-          'end_time': '20131201222222'
-        },
-      ];
       $scope.location_range_data = api.location_by_uid();
-      $scope.locations = remove_date(locations);
+      $scope.locations = remove_date(api.location_by_uid_day());
       function remove_date(logs) {
         return logs.map(function(elem) {
           elem.start_time = elem.start_time.slice(8);

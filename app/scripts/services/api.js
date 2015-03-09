@@ -52,7 +52,31 @@ angular.module('frontMobileDataVisualizationApp')
         ];
         return location_range_data;
       },
-      location_by_uid_day: function(uid, day) {},
+      location_by_uid_day: function(uid, day) {
+        var locations = [
+          {
+            'location': '116.30944 39.82278',
+            'start_time': '20131201094713',
+            'end_time': '20131201112222'
+          },
+          {
+            'location': '116.39458 39.85150',
+            'start_time': '20131201134713',
+            'end_time': '20131201152222'
+          },
+          {
+            'location': '116.29458 39.80150',
+            'start_time': '20131201164713',
+            'end_time': '20131201182222'
+          },
+          {
+            'location': '116.30944 39.82278',
+            'start_time': '20131201214713',
+            'end_time': '20131201222222'
+          },
+        ];
+        return locations;
+      },
       app_log_by_uid_day: function(uid, day) {}
     }
   }]);
