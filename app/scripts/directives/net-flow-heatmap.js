@@ -54,7 +54,7 @@ angular.module('frontMobileDataVisualizationApp')
           var width = $(element[0]).width() - margin.left - margin.right;
 
           var colorScale = d3.scale.quantile()
-            .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
+            .domain([0, buckets - 1, d3.max(data, function (d) { return d.count; })])
             .range(colors);
           var day_labels = svg.selectAll('.dayLabel')
             .data(days)
@@ -88,9 +88,9 @@ angular.module('frontMobileDataVisualizationApp')
               .style("fill", colors[0]);
 
           heatMap.transition().duration(1000)
-              .style("fill", function(d) { return colorScale(d.value); });
+              .style("fill", function(d) { return colorScale(d.count); });
 
-          heatMap.append("title").text(function(d) { return d.value; });
+          heatMap.append("title").text(function(d) { return d.count; });
 
           var legend = svg.selectAll(".legend")
               .data([0].concat(colorScale.quantiles()), function(d) { return d; })
