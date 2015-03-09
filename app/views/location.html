@@ -3,8 +3,8 @@
   <baidumap locations={{locations}}></baidumap>
 </div>
 <div class="col-md-2">
-  <p ng-repeat="location in locations">
-  {{location[0]}} <br>
-  {{location[1]}}
+  <p ng-repeat="log  in locations">
+  {{log.start_time + '-' + log.end_time}} <br>
+  {{log.location}}
   </p>
 </div></div>

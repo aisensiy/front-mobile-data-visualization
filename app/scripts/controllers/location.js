@@ -10,13 +10,33 @@
 angular.module('frontMobileDataVisualizationApp')
   .controller('LocationCtrl', ['$scope', function ($scope) {
       var locations = [
-        ["20131201094713", "116.30944 39.82278"],
-        ["20131201142751", "116.39458 39.85150"],
-        ["20131201150027", "116.39268 39.85241"],
-        ["20131201171420", "116.39458 39.85150"],
-        ["20131201174523", "116.38336 39.83360"],
-        ["20131201182320", "116.30888 39.80920"],
-        ["20131201182623", "116.38336 39.83360"],
+        {
+          'location': '116.30944 39.82278',
+          'start_time': '20131201094713',
+          'end_time': '20131201112222'
+        },
+        {
+          'location': '116.39458 39.85150',
+          'start_time': '20131201134713',
+          'end_time': '20131201152222'
+        },
+        {
+          'location': '116.29458 39.80150',
+          'start_time': '20131201164713',
+          'end_time': '20131201182222'
+        },
+        {
+          'location': '116.30944 39.82278',
+          'start_time': '20131201214713',
+          'end_time': '20131201222222'
+        },
       ];
-      $scope.locations = locations;
+      function remove_date(logs) {
+        return logs.map(function(elem) {
+          elem.start_time = elem.start_time.slice(8);
+          elem.end_time = elem.end_time.slice(8);
+          return elem;
+        });
+      }
+      $scope.locations = remove_date(locations);
   }]);

@@ -38,11 +38,11 @@ var MapController = (function() {
       map.addOverlay(marker);
       markers.push(marker);
       if (label_texts[point[0], point[1]]) {
-        label_texts[point[0], point[1]].times.push(point[2]);
+        label_texts[point[0], point[1]].times.push(point[2] + '-' + point[3]);
       } else {
         label_texts[point[0], point[1]] = {
           point: map_point,
-          times: [point[2]]
+          times: [point[2] + '-' + point[3]]
         };
       }
     });
@@ -73,9 +73,8 @@ var MapController = (function() {
 
   function raw2points(raw) {
     return raw.map(function(raw_point) {
-      var time = raw_point[0];
-      var pair = raw_point[1].split(' ');
-      return [+pair[0], +pair[1], time];
+      var pair = raw_point.location.split(' ');
+      return [+pair[0], +pair[1], raw_point.start_time, raw_point.end_time];
     });
   }
 
