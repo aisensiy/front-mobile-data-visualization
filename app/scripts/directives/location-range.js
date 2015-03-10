@@ -31,6 +31,13 @@ angular.module('frontMobileDataVisualizationApp')
           .append('g')
           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
+        d3.select(element[0]).append('div')
+          .attr('id', 'tooltip')
+          .classed('hidden', true)
+          .append('p')
+          .append('span')
+          .attr('id', 'value');
+
         var y = d3.scale.linear().domain([0, 24 * 60 - 1]).range([0, height]);
 
         window.onresize = function() {
@@ -93,7 +100,23 @@ angular.module('frontMobileDataVisualizationApp')
               .attr('width', gridWidth)
               .attr('height', function(d) { return y(d.end_time) - y(d.start_time); })
               .attr('title', function(d) { return d.title; })
-              .attr('fill', function(d) { return color(d.location); });
+              .attr('fill', function(d) { return color(d.location); })
+              .on('mouseover', function(d) {
+                d3.select(this).classed("cell-hover", true);
+
+                //Update the tooltip position and value
+                d3.select("#tooltip")
+                  .style("left", (d3.event.pageX + 10) + "px")
+                  .style("top", (d3.event.pageY - 10) + "px")
+                  .select("#value")
+                  .text(d.title + '\n' + d.location);
+                //Show the tooltip
+                d3.select("#tooltip").classed("hidden", false);
+              })
+              .on('mouseout', function(d) {
+                d3.select(this).classed("cell-hover",false);
+                d3.select("#tooltip").classed("hidden", true);
+              });
           });
         };
       }
