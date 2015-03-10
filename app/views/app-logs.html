@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <table class="table-bordered table table-hover">
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>应用名称</th>
+          <th>入口名称</th>
+          <th>网站名</th>
+          <th>域名</th>
+          <th>计数</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="log in logs">
+        <td>{{log.minute}}</td>
+        <td>{{log.app_name}}</td>
+        <td>{{log.busi_name}}</td>
+        <td>{{log.site_name}}</td>
+        <td>{{log.domain}}</td>
+        <td>{{log.count}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

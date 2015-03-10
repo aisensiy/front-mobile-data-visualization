@@ -27,6 +27,10 @@ angular
         templateUrl: 'views/net.html',
         controller: 'NetCtrl'
       })
+      .when('/app-logs', {
+        templateUrl: 'views/app-logs.html',
+        controller: 'AppLogsCtrl'
+      })
       .otherwise({
         redirectTo: '/net'
       });
