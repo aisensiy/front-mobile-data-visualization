@@ -9,10 +9,10 @@
  */
 angular.module('frontMobileDataVisualizationApp')
   .controller('LocationCtrl', ['$scope', 'api', function ($scope, api) {
-      api.location_by_uid('58661900').success(function(data) {
+      api.location_by_uid('1201403').success(function(data) {
         $scope.location_range_data = data;
       });
-      api.location_by_uid_day('58661900', '01').success(function(data) {
+      api.location_by_uid_day('1201403', '01').success(function(data) {
         $scope.locations = remove_date(data);
       });
       function remove_date(logs) {

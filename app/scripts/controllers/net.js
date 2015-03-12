@@ -9,10 +9,10 @@
  */
 angular.module('frontMobileDataVisualizationApp')
   .controller('NetCtrl', ['api', '$scope', function (api, $scope) {
-    api.gprs_count_by_hour('58661900').success(function(data) {
+    api.gprs_count_by_hour('1201403').success(function(data) {
       $scope.data = data;
     });
-    api.gprs_count_by_day('58661900').success(function(data) {
+    api.gprs_count_by_day('1201403').success(function(data) {
       $scope.week_data = data.map(function(elem) {
         elem.day = parseInt(elem.day);
         return elem;

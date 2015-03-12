@@ -9,7 +9,7 @@
  */
 angular.module('frontMobileDataVisualizationApp')
   .controller('AppLogsCtrl', ['api', '$scope', function (api, $scope) {
-    api.app_log_by_uid_day('58661900', '01').success(function(data) {
+    api.app_log_by_uid_day('1201403', '01').success(function(data) {
       $scope.logs = data;
     });
   }]);
