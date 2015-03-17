@@ -10,7 +10,9 @@
 angular.module('frontMobileDataVisualizationApp')
   .controller('UserlistCtrl', ['$scope', 'api', function($scope, api) {
     $scope.maxSize = 10;
-    $scope.totalItems = 175;
+    api.usercount().success(function(data) {
+      $scope.totalItems = +data;
+    });
     $scope.currentPage = 1;
 
     api.users($scope.currentPage).success(function(data) {
