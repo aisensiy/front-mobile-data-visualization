@@ -1,4 +1,5 @@
-<pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" ng-change="pageChanged()"></pagination>
+<h1>{{uid}}</h1>
+<h2>基本属性</h2>
 <table class="table table-striped table-bordered">
   <tr>
     <th class="text-center">uid</th>
@@ -12,7 +13,7 @@
     <th></th>
     <th></th>
   </tr>
-  <tr  ng-repeat="user in users">
+  <tr>
     <td class="text-center"><a ng-href="#/user/{{user.uid}}">{{user.uid}}</a></td>
     <td>{{user.gender}}</td>
     <td>{{user.age}}</td>
@@ -25,4 +26,8 @@
     <td><a ng-href="#/app-logs/{{user.uid}}">网络日志</a></td>
   </tr>
 </table>
-<pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" ng-change="pageChanged()"></pagination>
+<h2>地理位置</h2>
+<location-range data="location_range_data"></location-range>
+<h2>网络流量</h2>
+<net-flow-heatmap data="net_flow"></net-flow-heatmap>
+<calendar-heatmap data="net_flow_by_week" year="2013" month="12"></calendar-heatmap>

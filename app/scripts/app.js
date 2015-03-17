@@ -40,7 +40,11 @@ angular
         templateUrl: 'views/userlist.html',
         controller: 'UserlistCtrl'
       })
+      .when('/user/:uid', {
+        templateUrl: 'views/user.html',
+        controller: 'UserCtrl'
+      })
       .otherwise({
-        redirectTo: '/net'
+        redirectTo: '/userlist'
       });
   });
