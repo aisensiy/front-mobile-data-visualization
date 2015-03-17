@@ -165,13 +165,6 @@ angular.module('frontMobileDataVisualizationApp')
         'data': '='
       },
       link: function postLink(scope, element, attrs) {
-        var map = new BMap.Map('map');
-        var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
-        map.enableScrollWheelZoom()
-        map.enableContinuousZoom()
-        map.addControl(new BMap.NavigationControl())
-        map.centerAndZoom(point, 13);
-
         window.onresize = function() {
           scope.$apply();
         };
@@ -187,6 +180,14 @@ angular.module('frontMobileDataVisualizationApp')
         });
 
         scope.render = function(data) {
+          element.find('div')[0].innerHTML = '';
+          var map = new BMap.Map(element.find('div')[0]);
+          var point = new BMap.Point(116.404, 39.915);  // 创建点坐标
+          map.enableScrollWheelZoom()
+          map.enableContinuousZoom()
+          map.addControl(new BMap.NavigationControl())
+          map.centerAndZoom(point, 13);
+
           var map_controller = new MapController();
           map_controller.render(map, data);
         };

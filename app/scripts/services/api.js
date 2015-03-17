@@ -25,6 +25,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       app_log_by_uid_day: function(uid, day) {
         return $http.get(root + '/app_log_by_uid_day/' + uid + '/' + day);
+      },
+      location_daycount_by_uid: function(uid) {
+        return $http.get(root + '/location/daycount/' + uid);
       }
     }
   }]);

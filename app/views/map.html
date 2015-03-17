@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <ul class="list-inline">
+    <li ng-repeat="date in dates">
+      <a ng-href="#/map/{{uid}}/{{date.slice(6, 8)}}">{{date}}</a>
+    </li>
+  </ul>
+</div>
+<div class="col-md-10">
+  <baidumap data="locations"></baidumap>
+</div>
+<div class="col-md-2">
+  <p ng-repeat="log  in locations">
+  {{log.start_time + '-' + log.end_time}} <br>
+  {{log.location}}
+  </p>
+</div>

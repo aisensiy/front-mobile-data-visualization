@@ -31,6 +31,10 @@ angular
         templateUrl: 'views/app-logs.html',
         controller: 'AppLogsCtrl'
       })
+      .when('/map/:uid/:day', {
+        templateUrl: 'views/map.html',
+        controller: 'MapCtrl'
+      })
       .otherwise({
         redirectTo: '/net'
       });
