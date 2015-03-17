@@ -20,6 +20,35 @@ angular.module('frontMobileDataVisualizationApp')
           return +split.slice(0, 2) * 60 + +split.slice(2);
         }
 
+        var hashCategory = function(location) {
+          function hashCode(location) {
+            var hash = 0;
+            if (location.length == 0) {
+              return hash;
+            }
+
+            var i;
+            for (i = 0; i < location.length; i++) {
+              var charCode = location.charCodeAt(i);
+              hash = ((hash << 5) - hash) + charCode;
+              hash = hash & hash
+            }
+
+            if (hash < 0) {
+              hash *= -1;
+            }
+
+            return hash;
+          }
+          var d3_category = [
+            '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
+            '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
+            '#f7acbc', '#444693', '#121a2a', '#45224a'
+          ];
+
+          return d3_category[hashCode(location) % d3_category.length];
+        };
+
         var gridWidth = 25;
         var width = gridWidth * 31;
         var margin = { top: 25, right: 0, bottom: 40, left: 30 };
@@ -62,9 +91,9 @@ angular.module('frontMobileDataVisualizationApp')
           }
 
           var dayLabels = svg.selectAll(".dayLabel")
-              .data(d3.range(31))
+              .data(d3.range(1, 32))
               .enter().append("text")
-                .text(function(d) { return d + 1; })
+                .text(function(d) { return d; })
                 .attr("x", function(d, i) { return i * gridWidth; })
                 .attr("y", 0)
                 .style("text-anchor", "middle")
@@ -92,7 +121,6 @@ angular.module('frontMobileDataVisualizationApp')
                 title: elem.start_time + '-' + elem.end_time
               };
             });
-            var color = d3.scale.category20();
             svg.selectAll('.day' + date).data(one_day_data)
               .enter().append('rect')
               .attr('x', function(d) { return gridWidth * (date - 1); })
@@ -100,7 +128,7 @@ angular.module('frontMobileDataVisualizationApp')
               .attr('width', gridWidth)
               .attr('height', function(d) { return y(d.end_time) - y(d.start_time); })
               .attr('title', function(d) { return d.title; })
-              .attr('fill', function(d) { return color(d.location); })
+              .attr('fill', function(d) { return hashCategory(d.location); })
               .on('mouseover', function(d) {
                 d3.select(this).classed("cell-hover", true);
 
