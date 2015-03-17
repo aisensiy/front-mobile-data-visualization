@@ -8,10 +8,19 @@
  * Controller of the frontMobileDataVisualizationApp
  */
 angular.module('frontMobileDataVisualizationApp')
-  .controller('UserlistCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('UserlistCtrl', ['$scope', 'api', function($scope, api) {
+    $scope.maxSize = 10;
+    $scope.totalItems = 175;
+    $scope.currentPage = 1;
+
+    api.users($scope.currentPage).success(function(data) {
+      console.log(data);
+      $scope.users = data;
+    });
+    $scope.pageChanged = function() {
+      api.users($scope.currentPage).success(function(data) {
+        console.log(data);
+        $scope.users = data;
+      });
+    };
+  }]);

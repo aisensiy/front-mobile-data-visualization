@@ -28,6 +28,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       location_daycount_by_uid: function(uid) {
         return $http.get(root + '/location/daycount/' + uid);
+      },
+      users: function(page) {
+        return $http.get(root + '/users/' + (page - 1) * 100 + '/100');
       }
     }
   }]);
