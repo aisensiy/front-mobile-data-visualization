@@ -35,6 +35,10 @@ angular
         templateUrl: 'views/map.html',
         controller: 'MapCtrl'
       })
+      .when('/userlist', {
+        templateUrl: 'views/userlist.html',
+        controller: 'UserlistCtrl'
+      })
       .otherwise({
         redirectTo: '/net'
       });
