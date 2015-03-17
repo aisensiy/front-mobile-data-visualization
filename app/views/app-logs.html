@@ -1,6 +1,15 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <table class="table-bordered table table-hover">
+  <div class="col-md-12">
+    <ul class="nav nav-pills">
+      <li ng-repeat="date in dates" ng-class="{'active': cur_day == date}">
+      <a ng-click="getlog(date)" ng-href="">{{date}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table-bordered table table-hover" ng-show="logs">
       <thead>
         <tr>
           <th>时间</th>
