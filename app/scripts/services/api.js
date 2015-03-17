@@ -31,6 +31,12 @@ angular.module('frontMobileDataVisualizationApp')
       },
       users: function(page) {
         return $http.get(root + '/users/' + (page - 1) * 100 + '/100');
+      },
+      user: function(uid) {
+        return $http.get(root + '/users/' + uid);
+      },
+      usercount: function() {
+        return $http.get(root + '/usercount');
       }
     }
   }]);
