@@ -8,13 +8,10 @@
  * Controller of the frontMobileDataVisualizationApp
  */
 angular.module('frontMobileDataVisualizationApp')
-  .controller('LocationCtrl', ['$scope', 'api', function ($scope, api) {
-    $scope.uid = '1201403';
+  .controller('LocationCtrl', ['$scope', 'api', '$routeParams', function ($scope, api, $routeParams) {
+    $scope.uid = $routeParams.uid;
     api.location_by_uid($scope.uid).success(function(data) {
       $scope.location_range_data = data;
-    });
-    api.location_by_uid_day($scope.uid, '01').success(function(data) {
-      $scope.locations = remove_date(data);
     });
     api.location_daycount_by_uid($scope.uid).success(function(data) {
       $scope.dates = data;

@@ -14,12 +14,10 @@ angular.module('frontMobileDataVisualizationApp')
     $scope.currentPage = 1;
 
     api.users($scope.currentPage).success(function(data) {
-      console.log(data);
       $scope.users = data;
     });
     $scope.pageChanged = function() {
       api.users($scope.currentPage).success(function(data) {
-        console.log(data);
         $scope.users = data;
       });
     };

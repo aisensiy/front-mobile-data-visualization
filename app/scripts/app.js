@@ -20,15 +20,15 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/location', {
+      .when('/location/:uid', {
         templateUrl: 'views/location.html',
         controller: 'LocationCtrl'
       })
-      .when('/net', {
+      .when('/net/:uid', {
         templateUrl: 'views/net.html',
         controller: 'NetCtrl'
       })
-      .when('/app-logs', {
+      .when('/app-logs/:uid', {
         templateUrl: 'views/app-logs.html',
         controller: 'AppLogsCtrl'
       })

@@ -8,8 +8,8 @@
  * Controller of the frontMobileDataVisualizationApp
  */
 angular.module('frontMobileDataVisualizationApp')
-  .controller('AppLogsCtrl', ['api', '$scope', function (api, $scope) {
-    api.app_log_by_uid_day('1201403', '01').success(function(data) {
+  .controller('AppLogsCtrl', ['api', '$scope', '$routeParams', function (api, $scope, $routeParams) {
+    api.app_log_by_uid_day($routeParams.uid, '01').success(function(data) {
       $scope.logs = data;
     });
   }]);
