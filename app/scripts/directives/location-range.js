@@ -30,7 +30,7 @@ angular.module('frontMobileDataVisualizationApp')
             var i;
             for (i = 0; i < location.length; i++) {
               var charCode = location.charCodeAt(i);
-              hash = ((hash << 5) - hash) + charCode;
+              hash = ((hash << 5) - hash) + charCode + 2;
               hash = hash & hash
             }
 

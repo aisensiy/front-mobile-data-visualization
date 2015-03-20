@@ -16,6 +16,9 @@ angular.module('frontMobileDataVisualizationApp')
     api.location_by_uid($scope.uid).success(function(data) {
       $scope.location_range_data = data;
     });
+    api.location_stop_by_uid($scope.uid).success(function(data) {
+      $scope.location_stop_range_data = data;
+    });
     api.gprs_count_by_hour($routeParams.uid).success(function(data) {
       $scope.net_flow = data;
     });

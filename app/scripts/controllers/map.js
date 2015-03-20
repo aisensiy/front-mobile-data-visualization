@@ -13,13 +13,16 @@ angular.module('frontMobileDataVisualizationApp')
       api.location_by_uid_day($scope.uid, $routeParams.day).success(function(data) {
         $scope.locations = remove_date(data);
       });
+      api.location_stop_by_uid_day($scope.uid, $routeParams.day).success(function(data) {
+        $scope.stop_locations = remove_date(data);
+      });
       api.location_daycount_by_uid($scope.uid).success(function(data) {
         $scope.dates = data;
       });
       function remove_date(logs) {
         return logs.map(function(elem) {
-          elem.start_time = elem.start_time.slice(8);
-          elem.end_time = elem.end_time.slice(8);
+          elem.start_time = elem.start_time.slice(8, 12);
+          elem.end_time = elem.end_time.slice(8, 12);
           return elem;
         });
       }
