@@ -77,7 +77,7 @@ var MapController = (function() {
     }
     return raw.map(function(raw_point) {
       var pair = raw_point.location.split(' ');
-      return [+pair[0], +pair[1], raw_point.start_time, raw_point.end_time];
+      return [+pair[0] + 0.013, +pair[1] + 0.007, raw_point.start_time, raw_point.end_time];
     });
   }
 

@@ -10,11 +10,15 @@
 angular.module('frontMobileDataVisualizationApp')
   .controller('UserCtrl', ['$scope', 'api', '$routeParams', function ($scope, api, $routeParams) {
     $scope.uid = $routeParams.uid;
+    $scope.seed = +new Date() % 10;
     api.user($scope.uid).success(function(data) {
       $scope.user = data;
     });
     api.location_by_uid($scope.uid).success(function(data) {
       $scope.location_range_data = data;
+    });
+    api.location_stop_by_uid($scope.uid).success(function(data) {
+      $scope.location_stop_range_data = data;
     });
     api.gprs_count_by_hour($routeParams.uid).success(function(data) {
       $scope.net_flow = data;
