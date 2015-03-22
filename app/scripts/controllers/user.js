@@ -10,6 +10,7 @@
 angular.module('frontMobileDataVisualizationApp')
   .controller('UserCtrl', ['$scope', 'api', '$routeParams', function ($scope, api, $routeParams) {
     $scope.uid = $routeParams.uid;
+    $scope.seed = +new Date() % 10;
     api.user($scope.uid).success(function(data) {
       $scope.user = data;
     });

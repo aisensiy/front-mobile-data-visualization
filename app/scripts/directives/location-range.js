@@ -12,9 +12,11 @@ angular.module('frontMobileDataVisualizationApp')
       template: '',
       restrict: 'E',
       scope: {
-        data: '='
+        data: '=',
+        seed: '@'
       },
       link: function postLink(scope, element, attrs) {
+        var seed = scope.seed || (+new Date) % 10;
         function clock_to_num(str) {
           var split = str.slice(8, 12)
           return +split.slice(0, 2) * 60 + +split.slice(2);
@@ -30,7 +32,7 @@ angular.module('frontMobileDataVisualizationApp')
             var i;
             for (i = 0; i < location.length; i++) {
               var charCode = location.charCodeAt(i);
-              hash = ((hash << 5) - hash) + charCode + 2;
+              hash = ((hash << 5) - hash) + charCode + seed;
               hash = hash & hash
             }
 

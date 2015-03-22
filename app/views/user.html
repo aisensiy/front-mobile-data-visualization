@@ -8,7 +8,7 @@
     <th>手机</th>
     <th>话费</th>
     <th>流量费</th>
-    <th>开通区域</th>
+/   <th>开通区域</th>
     <th></th>
     <th></th>
     <th></th>
@@ -27,8 +27,8 @@
   </tr>
 </table>
 <h2>地理位置</h2>
-<location-range data="location_range_data"></location-range>
-<location-range data="location_stop_range_data"></location-range>
+<location-range data="location_range_data" seed="{{seed}}"></location-range>
+<location-range data="location_stop_range_data" seed="{{seed}}"></location-range>
 <h2>网络流量</h2>
 <net-flow-heatmap data="net_flow"></net-flow-heatmap>
 <calendar-heatmap data="net_flow_by_week" year="2013" month="12"></calendar-heatmap>
