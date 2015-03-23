@@ -26,6 +26,9 @@ angular.module('frontMobileDataVisualizationApp')
       location_by_uid_day: function(uid, day) {
         return $http.get(root + '/location_by_uid_day/' + uid + '/' + day);
       },
+      raw_location_by_uid_day: function(uid, day) {
+        return $http.get(root + '/raw_location_by_uid_day/' + uid + '/' + day);
+      },
       location_stop_by_uid_day: function(uid, day) {
         return $http.get(root + '/location_by_uid_day_stop/' + uid + '/' + day);
       },

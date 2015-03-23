@@ -1,0 +1,36 @@
+.axis {
+  path, line {
+    fill: none;
+    stroke: gray;
+    stroke-width: 2;
+    shape-rendering: crispEdges;
+  }
+  text {
+    font-family: sans-serif;
+    font-size: 10px;
+  }
+}
+.selecting path {
+  fill-opacity: .2;
+}
+
+.selecting path.selected {
+  stroke: #f00;
+  stroke-width: 2px;
+}
+
+.selected {
+  fill: #afa2dc;
+  stroke: #2f225d;
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.clear_button {
+  font-size: 14px;
+  cursor: pointer;
+}

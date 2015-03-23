@@ -10,6 +10,9 @@
 angular.module('frontMobileDataVisualizationApp')
   .controller('MapCtrl', ['$scope', '$routeParams', 'api', function ($scope, $routeParams, api) {
       $scope.uid = $routeParams.uid;
+      api.raw_location_by_uid_day($scope.uid, $routeParams.day).success(function(data) {
+        $scope.raw_locations = data;
+      });
       api.location_by_uid_day($scope.uid, $routeParams.day).success(function(data) {
         $scope.locations = remove_date(data);
       });
