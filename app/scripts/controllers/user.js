@@ -29,4 +29,13 @@ angular.module('frontMobileDataVisualizationApp')
         return elem;
       });
     });
+    api.proba_matrix($routeParams.uid).success(function(data) {
+      $scope.proba_matrix = data;
+    });
+    api.holiday_proba_matrix($routeParams.uid).success(function(data) {
+      $scope.holiday_proba_matrix = data;
+    });
+    api.workday_proba_matrix($routeParams.uid).success(function(data) {
+      $scope.workday_proba_matrix = data;
+    });
   }]);

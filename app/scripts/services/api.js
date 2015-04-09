@@ -46,6 +46,15 @@ angular.module('frontMobileDataVisualizationApp')
       },
       usercount: function() {
         return $http.get(root + '/usercount');
+      },
+      proba_matrix: function(uid) {
+        return $http.get(root + '/proba_matrix/' + uid);
+      },
+      holiday_proba_matrix: function(uid) {
+        return $http.get(root + '/proba_matrix_holiday/' + uid);
+      },
+      workday_proba_matrix: function(uid) {
+        return $http.get(root + '/proba_matrix_workday/' + uid);
       }
     }
   }]);

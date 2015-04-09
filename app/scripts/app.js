@@ -44,7 +44,11 @@ angular
         templateUrl: 'views/user.html',
         controller: 'UserCtrl'
       })
+      .when('/test', {
+        templateUrl: 'views/test.html',
+        controller: 'TestCtrl'
+      })
       .otherwise({
-        redirectTo: '/userlist'
+        redirectTo: '/test'
       });
   });
