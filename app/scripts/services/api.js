@@ -55,6 +55,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       workday_proba_matrix: function(uid) {
         return $http.get(root + '/proba_matrix_workday/' + uid);
+      },
+      freq_seq: function(uid) {
+        return $http.get(root + '/freq_seq/' + uid);
       }
     }
   }]);

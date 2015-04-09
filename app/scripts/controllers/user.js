@@ -38,4 +38,7 @@ angular.module('frontMobileDataVisualizationApp')
     api.workday_proba_matrix($routeParams.uid).success(function(data) {
       $scope.workday_proba_matrix = data;
     });
+    api.freq_seq($routeParams.uid).success(function(data) {
+      $scope.freq_seqs = data;
+    });
   }]);

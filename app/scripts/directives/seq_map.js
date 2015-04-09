@@ -1,7 +1,6 @@
 'use strict';
 
-
-var MapController = (function() {
+var SeqMapController = (function() {
   function MapController() {
     this.overlays = [];
   }
@@ -47,25 +46,25 @@ var MapController = (function() {
       }
     });
 
-    var labels = [];
-    for (points in label_texts) {
-      var map_point = label_texts[points].point;
-      var times = label_texts[points].times;
-      var opts = {
-        position: map_point,
-        offset: new BMap.Size(15, -10)
-      };
-      var label = new BMap.Label(times.join('<br />'), opts);
-      label.setStyle({
-        color : "red",
-        fontSize : "12px",
-        background: 'none',
-        border: 0,
-        fontFamily:"微软雅黑"
-      });
-      map.addOverlay(label);
-      labels.push(label);
-    }
+    // var labels = [];
+    // for (points in label_texts) {
+    //   var map_point = label_texts[points].point;
+    //   var times = label_texts[points].times;
+    //   var opts = {
+    //     position: map_point,
+    //     offset: new BMap.Size(15, -10)
+    //   };
+    //   var label = new BMap.Label(times.join('<br />'), opts);
+    //   label.setStyle({
+    //     color : "red",
+    //     fontSize : "12px",
+    //     background: 'none',
+    //     border: 0,
+    //     fontFamily:"微软雅黑"
+    //   });
+    //   map.addOverlay(label);
+    //   labels.push(label);
+    // }
 
     markers.push(curve);
     this.overlays = markers.concat(labels);
@@ -76,8 +75,8 @@ var MapController = (function() {
       return [];
     }
     return raw.map(function(raw_point) {
-      var pair = raw_point.location.split(' ');
-      return [+pair[0] + 0.013, +pair[1] + 0.007, raw_point.start_time, raw_point.end_time];
+      var pair = raw_point.split(' ');
+      return [+pair[0] + 0.013, +pair[1] + 0.007];
     });
   }
 
@@ -93,73 +92,17 @@ var MapController = (function() {
 
   return MapController;
 })();
-/*
-    # init map
-    center = pointavg(pairs)
-    console.log 'center:', center
-    point = new BMap.Point(center[0], center[1])
-    map.panTo(point)
 
-    # add curve
-    curve = new BMapLib.CurveLine(
-        points,
-        {strokeColor: "#00BFFF", strokeWeight:6, strokeOpacity:0.5})
-    map.addOverlay(curve)
-
-    bluemarker = new BMap.Icon("/assets/bluemarker.png",
-                           new BMap.Size(16, 16),
-                           {anchor: new BMap.Size(8, 16)})
-    redmarker = new BMap.Icon("/assets/redmarker.png",
-                           new BMap.Size(16, 16),
-                           {anchor: new BMap.Size(8, 16)})
-
-    markericons = [redmarker, bluemarker]
-
-    # add marker
-    markers = []
-    for i in [0..(points.length - 1)]
-      p = points[i]
-      markericon = if pairs[i].length >= 3 then pairs[i][2] else 0
-      marker = new BMap.Marker(p, {icon: markericons[markericon]})
-      map.addOverlay(marker)
-      markers.push(marker)
-
-    format_time = (d) ->
-      return moment(d).format('HH:mm:ss')
-
-    geo = new BMap.Geocoder()
-
-    addresses = []
-
-    n = points.length
-
-    for i in [0..(n - 1)]
-      point = points[i]
-      time = pairs[i][0]
-      marker = markers[i]
-      ((pair, point, marker, time) ->
-        geo.getLocation point, (rs) ->
-          label = new BMap.Label(format_time(time), {offset: new BMap.Size(20, -10)})
-          marker.setLabel(label)
-          addresses.push([time, rs, pair])
-          if addresses.length == n
-            if finish
-              finish(addresses)
-      )(pairs[i], point, marker, time)
-
-    markers.push(curve)
-    @overlays = markers
-*/
 /**
  * @ngdoc directive
- * @name frontMobileDataVisualizationApp.directive:baidumap
+ * @name frontMobileDataVisualizationApp.directive:seqMap
  * @description
- * # baidumap
+ * # seqMap
  */
 angular.module('frontMobileDataVisualizationApp')
-  .directive('baidumap', ['$window', function ($window) {
+  .directive('seqMap', ['$window', function ($window) {
     return {
-      template: '<div id="map" style="height: 800px;"></div>',
+      template: '<div id="map" style="height: 400px;"></div>',
       restrict: 'E',
       scope: {
         'data': '='
@@ -188,7 +131,7 @@ angular.module('frontMobileDataVisualizationApp')
           map.addControl(new BMap.NavigationControl())
           map.centerAndZoom(point, 13);
 
-          var map_controller = new MapController();
+          var map_controller = new SeqMapController();
           map_controller.render(map, data);
         };
       }

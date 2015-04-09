@@ -30,8 +30,12 @@
 <location-range data="location_range_data" seed="{{seed}}"></location-range>
 <location-range data="location_stop_range_data" seed="{{seed}}"></location-range>
 <h2>网络流量</h2>
-<net-flow-heatmap data="net_flow"></net-flow-heatmap>
-<calendar-heatmap data="net_flow_by_week" year="2013" month="12"></calendar-heatmap>
+<!--<net-flow-heatmap data="net_flow"></net-flow-heatmap>00>-->
+<!--<calendar-heatmap data="net_flow_by_week" year="2013" month="12"></calendar-heatmap>-->
 <periodic-matrix data="proba_matrix"></periodic-matrix>
 <periodic-matrix data="holiday_proba_matrix"></periodic-matrix>
 <periodic-matrix data="workday_proba_matrix"></periodic-matrix>
+
+<div ng-repeat="freq_seq in freq_seqs">
+  <seq-map data="freq_seq"></freq-map>
+</div>
