@@ -58,6 +58,12 @@ angular.module('frontMobileDataVisualizationApp')
       },
       freq_seq: function(uid) {
         return $http.get(root + '/freq_seq/' + uid);
+      },
+      site_count: function(uid) {
+        return $http.get(root + '/site_count/' + uid);
+      },
+      app_count: function(uid) {
+        return $http.get(root + '/app_count/' + uid);
       }
     }
   }]);

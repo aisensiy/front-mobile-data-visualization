@@ -41,4 +41,11 @@ angular.module('frontMobileDataVisualizationApp')
     api.freq_seq($routeParams.uid).success(function(data) {
       $scope.freq_seqs = data;
     });
+    api.site_count($routeParams.uid).success(function(data) {
+      $scope.sites = data;
+    });
+    api.app_count($routeParams.uid).success(function(data) {
+      $scope.apps = data;
+    });
+
   }]);

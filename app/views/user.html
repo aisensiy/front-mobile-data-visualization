@@ -39,3 +39,27 @@
 <div ng-repeat="freq_seq in freq_seqs">
   <seq-map data="freq_seq"></freq-map>
 </div>
+
+<br />
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>name</th>
+    <th>count</th>
+  </tr>
+  <tr ng-repeat="row in sites">
+    <td>{{row.site_name}}</td>
+    <td>{{row.count}}</td>
+  </tr>
+</table>
+
+<br />
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>name</th>
+    <th>count</th>
+  </tr>
+  <tr ng-repeat="row in apps">
+    <td>{{row.app_name}}</td>
+    <td>{{row.count}}</td>
+  </tr>
+</table>
