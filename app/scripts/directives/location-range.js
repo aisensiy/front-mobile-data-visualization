@@ -55,7 +55,7 @@ angular.module('frontMobileDataVisualizationApp')
         var width = gridWidth * 31;
         var margin = { top: 25, right: 0, bottom: 40, left: 30 };
         var height = 400 - margin.top - margin.bottom;
-        var times = d3.range(24);
+        var times = d3.range(1, 25);
 
         var svg = d3.select(element[0]).append('svg').style('width', '100%')
           .attr('height', height + margin.top + margin.bottom)
