@@ -14,7 +14,7 @@ angular.module('frontMobileDataVisualizationApp')
         data: '='
       },
       link: function postLink(scope, element, attrs) {
-        var gridSize = 40;
+        var gridSize = 20;
         var margin = { top: 25, right: 0, bottom: gridSize + 10, left: 30 };
         var legendElementWidth = gridSize * 2;
         var height = gridSize * 31;
