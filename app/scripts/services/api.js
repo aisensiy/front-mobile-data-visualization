@@ -64,6 +64,12 @@ angular.module('frontMobileDataVisualizationApp')
       },
       app_count: function(uid) {
         return $http.get(root + '/app_count/' + uid);
+      },
+      web_req_hist: function(uid) {
+        return $http.get(root + '/web_req_histgram/' + uid);
+      },
+      call_hist: function(uid) {
+        return $http.get(root + '/call_histgram/' + uid);
       }
     }
   }]);

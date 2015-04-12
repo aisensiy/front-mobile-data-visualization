@@ -48,4 +48,36 @@ angular.module('frontMobileDataVisualizationApp')
       $scope.apps = data;
     });
 
+    api.web_req_hist($routeParams.uid).success(function(data) {
+      var newdata = [];
+      var i = 0, j = 0;
+      while(i < 24) {
+        if (data[j] && i == data[j].hour) {
+          newdata.push(data[j]);
+          j += 1;
+          i += 1;
+        } else {
+          newdata.push({count: 0, hour: i});
+          i += 1;
+        }
+      }
+      $scope.web_req = newdata;
+    });
+
+    api.call_hist($routeParams.uid).success(function(data) {
+      console.log(data);
+      var newdata = [];
+      var i = 0, j = 0;
+      while(i < 24) {
+        if (data[j] && i == data[j].hour) {
+          newdata.push(data[j]);
+          j += 1;
+        } else {
+          newdata.push({count: 0, hour: i});
+        }
+        i += 1;
+      }
+      $scope.call = newdata;
+    });
+
   }]);
