@@ -56,6 +56,9 @@ angular.module('frontMobileDataVisualizationApp')
       workday_proba_matrix: function(uid) {
         return $http.get(root + '/proba_matrix_workday/' + uid);
       },
+      most_proba_locations: function(uid) {
+        return $http.get(root + '/most_proba_locations/' + uid);
+      },
       freq_seq: function(uid) {
         return $http.get(root + '/freq_seq/' + uid);
       },
@@ -70,6 +73,12 @@ angular.module('frontMobileDataVisualizationApp')
       },
       call_hist: function(uid) {
         return $http.get(root + '/call_histgram/' + uid);
+      },
+      entropy_by_uid_day: function(uid, day) {
+        return $http.get(root + '/entropy_by_uid_day/' + uid + '/' + day)
+      },
+      semantic_data: function(uid) {
+        return $http.get(root + '/semantic_data/' + uid);
       }
     }
   }]);

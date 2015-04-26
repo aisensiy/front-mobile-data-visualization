@@ -19,6 +19,11 @@ angular.module('frontMobileDataVisualizationApp')
       api.location_stop_by_uid_day($scope.uid, $routeParams.day).success(function(data) {
         $scope.stop_locations = remove_date(data);
       });
+      api.entropy_by_uid_day($scope.uid, $routeParams.day).success(function(data) {
+        $scope.transient_entropy = data.filter(function(d) {
+          return d.entropy >= 0.3;
+        });
+      });
       api.location_daycount_by_uid($scope.uid).success(function(data) {
         $scope.dates = data;
       });

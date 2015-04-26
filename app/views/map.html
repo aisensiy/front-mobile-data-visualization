@@ -26,3 +26,15 @@
 <div class="col-md-12">
   <time-location-chart data="raw_locations"></time-location-chart>
 </div>
+<div class="col-md-12">
+  <table class="table table-striped trable-bordered">
+    <tr>
+      <td>time</td>
+      <td>entropy</td>
+    </tr>
+    <tr ng-repeat="item in transient_entropy">
+      <td>{{item.time}}</td>
+      <td>{{item.entropy}}</td>
+    </tr>
+  </table>
+</div>

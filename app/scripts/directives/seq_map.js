@@ -67,7 +67,7 @@ var SeqMapController = (function() {
     // }
 
     markers.push(curve);
-    this.overlays = markers.concat(labels);
+    // this.overlays = markers.concat(labels);
   };
 
   function raw2points(raw) {

@@ -48,6 +48,14 @@ angular.module('frontMobileDataVisualizationApp')
       $scope.apps = data;
     });
 
+    api.semantic_data($routeParams.uid).success(function(data) {
+      $scope.semantic_data = data;
+    });
+
+    api.most_proba_locations($routeParams.uid).success(function(data) {
+      $scope.most_proba_locations = data;
+    });
+
     api.web_req_hist($routeParams.uid).success(function(data) {
       var newdata = [];
       var i = 0, j = 0;

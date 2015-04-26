@@ -38,9 +38,28 @@
 <periodic-matrix data="holiday_proba_matrix"></periodic-matrix>
 <periodic-matrix data="workday_proba_matrix"></periodic-matrix>
 
+<table class="table table-bordered table-striped">
+  <tr ng-repeat="item in most_proba_locations">
+    <td>{{item.range[0]}} - {{item.range[1]}}</td>
+    <td>{{item.locations.join(',')}}</td>
+  </tr>
+</table>
+
+<br />
+<table class="table table-bordered table-striped">
+  <tr ng-repeat="row in semantic_data">
+    <td>{{row.location}}</td>
+    <td>{{row.station_desc}}</td>
+    <td>{{row.business}}</td>
+    <td>{{row.addr}}</td>
+    <td>{{row.tags}}</td>
+  </tr>
+</table>
+
 <div ng-repeat="freq_seq in freq_seqs">
   <seq-map data="freq_seq"></freq-map>
 </div>
+
 
 <br />
 <table class="table table-bordered table-striped">
