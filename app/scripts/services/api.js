@@ -79,6 +79,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       semantic_data: function(uid) {
         return $http.get(root + '/semantic_data/' + uid);
+      },
+      speed_by_uid_day: function(uid, day) {
+        return $http.get(root + '/speed_by_uid_day/' + uid + '/' + day);
       }
     }
   }]);

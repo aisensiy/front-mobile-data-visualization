@@ -27,6 +27,9 @@ angular.module('frontMobileDataVisualizationApp')
       api.location_daycount_by_uid($scope.uid).success(function(data) {
         $scope.dates = data;
       });
+      api.speed_by_uid_day($scope.uid, $routeParams.day).success(function(data) {
+        $scope.speed_data = data;
+      });
       function remove_date(logs) {
         return logs.map(function(elem) {
           elem.start_time = elem.start_time.slice(8, 12);
