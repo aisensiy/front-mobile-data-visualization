@@ -28,8 +28,8 @@ angular.module('frontMobileDataVisualizationApp')
         }
 
         var margin = {top: 10, right: 30, bottom: 30, left: 30},
-            width = 800,
-            height = 250 - margin.top - margin.bottom;
+            width = 500,
+            height = 150 - margin.top - margin.bottom;
 
         var svg = d3.select(element[0]).append("svg")
           .attr("width", width + margin.left + margin.right)
@@ -74,7 +74,10 @@ angular.module('frontMobileDataVisualizationApp')
 
           svg.append("g")
             .attr("class", "y axis")
-            .call(yAxis);
+            .call(yAxis)
+            .append('text')
+            .attr("y", 6)
+            .text(data[0].time.slice(0, 8));
 
           svg.append("g")
             .attr("class", "x axis")

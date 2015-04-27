@@ -88,4 +88,10 @@ angular.module('frontMobileDataVisualizationApp')
       $scope.call = newdata;
     });
 
+    api.speed_by_uid($routeParams.uid).success(function(data) {
+      $scope.total_speeds = data.filter(function(elem) {
+        return elem.length > 0;
+      });
+    });
+
   }]);

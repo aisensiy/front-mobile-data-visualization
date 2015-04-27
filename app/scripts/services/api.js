@@ -82,6 +82,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       speed_by_uid_day: function(uid, day) {
         return $http.get(root + '/speed_by_uid_day/' + uid + '/' + day);
+      },
+      speed_by_uid: function(uid) {
+        return $http.get(root + '/speed_by_uid/' + uid);
       }
     }
   }]);
