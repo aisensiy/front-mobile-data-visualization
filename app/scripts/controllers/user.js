@@ -99,4 +99,8 @@ angular.module('frontMobileDataVisualizationApp')
       });
     });
 
+    api.semantic_proba_matrix($routeParams.uid).success(function(data) {
+      $scope.semantic_proba_matrix = data;
+    });
+
   }]);

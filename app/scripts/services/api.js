@@ -89,6 +89,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       user_status: function(uid) {
         return $http.get(root + '/user_status/' + uid);
+      },
+      semantic_proba_matrix: function(uid) {
+        return $http.get(root + '/semantic_proba_matrix/' + uid);
       }
     }
   }]);
