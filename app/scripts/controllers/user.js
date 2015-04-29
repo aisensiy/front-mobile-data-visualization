@@ -35,12 +35,14 @@ angular.module('frontMobileDataVisualizationApp')
     api.proba_matrix($routeParams.uid).success(function(data) {
       $scope.proba_matrix = data;
     });
-    api.holiday_proba_matrix($routeParams.uid).success(function(data) {
-      $scope.holiday_proba_matrix = data;
-    });
-    api.workday_proba_matrix($routeParams.uid).success(function(data) {
-      $scope.workday_proba_matrix = data;
-    });
+
+    // api.holiday_proba_matrix($routeParams.uid).success(function(data) {
+    //   $scope.holiday_proba_matrix = data;
+    // });
+    // api.workday_proba_matrix($routeParams.uid).success(function(data) {
+    //   $scope.workday_proba_matrix = data;
+    // });
+
     api.freq_seq($routeParams.uid).success(function(data) {
       $scope.freq_seqs = data;
     });
@@ -51,9 +53,9 @@ angular.module('frontMobileDataVisualizationApp')
       $scope.apps = data;
     });
 
-    api.semantic_data($routeParams.uid).success(function(data) {
-      $scope.semantic_data = data;
-    });
+    // api.semantic_data($routeParams.uid).success(function(data) {
+    //   $scope.semantic_data = data;
+    // });
 
     api.most_proba_locations($routeParams.uid).success(function(data) {
       $scope.most_proba_locations = data;
