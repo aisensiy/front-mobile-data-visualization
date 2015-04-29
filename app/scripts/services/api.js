@@ -39,10 +39,11 @@ angular.module('frontMobileDataVisualizationApp')
         return $http.get(root + '/location/daycount/' + uid);
       },
       users: function(page) {
-        return $http.get(root + '/users/' + (page - 1) * 100 + '/100');
+        return $http.get(root + '/users/' + (page - 1) * 100 + '/100',
+            { cache: true });
       },
       user: function(uid) {
-        return $http.get(root + '/users/' + uid);
+        return $http.get(root + '/users/' + uid, { cache: true });
       },
       usercount: function() {
         return $http.get(root + '/usercount');
@@ -60,19 +61,19 @@ angular.module('frontMobileDataVisualizationApp')
         return $http.get(root + '/most_proba_locations/' + uid);
       },
       freq_seq: function(uid) {
-        return $http.get(root + '/freq_seq/' + uid);
+        return $http.get(root + '/freq_seq/' + uid, { cache: true });
       },
       site_count: function(uid) {
-        return $http.get(root + '/site_count/' + uid);
+        return $http.get(root + '/site_count/' + uid, { cache: true });
       },
       app_count: function(uid) {
-        return $http.get(root + '/app_count/' + uid);
+        return $http.get(root + '/app_count/' + uid, { cache: true });
       },
       web_req_hist: function(uid) {
-        return $http.get(root + '/web_req_histgram/' + uid);
+        return $http.get(root + '/web_req_histgram/' + uid, { cache: true });
       },
       call_hist: function(uid) {
-        return $http.get(root + '/call_histgram/' + uid);
+        return $http.get(root + '/call_histgram/' + uid, { cache: true });
       },
       entropy_by_uid_day: function(uid, day) {
         return $http.get(root + '/entropy_by_uid_day/' + uid + '/' + day)
