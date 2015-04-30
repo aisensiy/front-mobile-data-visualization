@@ -14,8 +14,14 @@ angular.module('frontMobileDataVisualizationApp')
       gprs_count_by_hour: function(uid) {
         return $http.get(root + '/gprs_count_by_hour/' + uid);
       },
+      call_count_by_hour: function(uid) {
+        return $http.get(root + '/call_count_by_hour/' + uid);
+      },
       gprs_count_by_day: function(uid) {
         return $http.get(root + '/gprs_count_by_day/' + uid);
+      },
+      call_count_by_day: function(uid) {
+        return $http.get(root + '/call_count_by_day/' + uid);
       },
       location_by_uid: function(uid) {
         return $http.get(root + '/location_by_uid/' + uid);

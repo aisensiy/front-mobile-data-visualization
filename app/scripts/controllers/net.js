@@ -18,4 +18,13 @@ angular.module('frontMobileDataVisualizationApp')
         return elem;
       });
     });
+    api.call_count_by_day($routeParams.uid).success(function(data) {
+      $scope.call_by_day = data.map(function(elem) {
+        elem.day = parseInt(elem.day);
+        return elem;
+      });
+    });
+    api.call_count_by_hour($routeParams.uid).success(function(data) {
+      $scope.call_by_hour = data;
+    });
   }]);
