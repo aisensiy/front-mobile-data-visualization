@@ -103,4 +103,8 @@ angular.module('frontMobileDataVisualizationApp')
       $scope.semantic_proba_matrix = data;
     });
 
+    api.district_proba_matrix($routeParams.uid).success(function(data) {
+      $scope.district_proba_matrix = data;
+    });
+
   }]);

@@ -92,6 +92,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       semantic_proba_matrix: function(uid) {
         return $http.get(root + '/semantic_proba_matrix/' + uid);
+      },
+      district_proba_matrix: function(uid) {
+        return $http.get(root + '/district_proba_matrix/' + uid);
       }
     }
   }]);
