@@ -77,6 +77,10 @@ angular.module('frontMobileDataVisualizationApp')
       $scope.web_req = newdata;
     });
 
+    api.gprs_count_by_day($routeParams.uid).success(function(data) {
+      $scope.req_by_day = data;
+    });
+
     api.call_hist($routeParams.uid).success(function(data) {
       var newdata = [];
       var i = 0, j = 0;
@@ -90,6 +94,10 @@ angular.module('frontMobileDataVisualizationApp')
         i += 1;
       }
       $scope.call = newdata;
+    });
+
+    api.call_count_by_day($routeParams.uid).success(function(data) {
+      $scope.call_by_day = data;
     });
 
     api.speed_by_uid($routeParams.uid).success(function(data) {

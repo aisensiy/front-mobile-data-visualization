@@ -12,7 +12,9 @@ angular.module('frontMobileDataVisualizationApp')
       template: '',
       restrict: 'E',
       scope: {
-        data: '='
+        data: '=',
+        index: '@',
+        range: '@'
       },
       link: function postLink(scope, element, attrs) {
 
@@ -20,9 +22,10 @@ angular.module('frontMobileDataVisualizationApp')
         var formatCount = d3.format(",.0f");
         var barWidth = 30;
         var gap = 5;
+        var rng = +scope.range;
 
         var margin = {top: 10, right: 30, bottom: 30, left: 30},
-            width = (barWidth + gap) * 24,
+            width = (barWidth + gap) * rng,
             height = 250 - margin.top - margin.bottom;
 
         var svg = d3.select(element[0]).append("svg")
@@ -69,7 +72,7 @@ angular.module('frontMobileDataVisualizationApp')
             .data(data)
             .enter().append("g")
             .attr("class", "bar")
-            .attr("transform", function(d, idx) { return "translate(" + idx * (barWidth + gap) + "," + y(d.count) + ")"; });
+            .attr("transform", function(d) { return "translate(" + d[scope.index] * (barWidth + gap) + "," + y(d.count) + ")"; });
 
           bar.append("rect")
             .attr("x", 1)
@@ -80,7 +83,7 @@ angular.module('frontMobileDataVisualizationApp')
             .attr("class", "x axis")
             .attr("transform", "translate(0," + (height + 15) + ")")
             .selectAll('.text')
-            .data(d3.range(24))
+            .data(d3.range(rng))
             .enter().append("text")
             .text(function(d) { return d; })
             .attr("y", 0)

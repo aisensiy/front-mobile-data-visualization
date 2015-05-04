@@ -12,6 +12,7 @@ angular.module('frontMobileDataVisualizationApp')
     api.gprs_count_by_hour($routeParams.uid).success(function(data) {
       $scope.data = data;
     });
+    /*
     api.gprs_count_by_day($routeParams.uid).success(function(data) {
       $scope.week_data = data.map(function(elem) {
         elem.day = parseInt(elem.day);
@@ -24,6 +25,7 @@ angular.module('frontMobileDataVisualizationApp')
         return elem;
       });
     });
+    */
     api.call_count_by_hour($routeParams.uid).success(function(data) {
       $scope.call_by_hour = data;
     });
