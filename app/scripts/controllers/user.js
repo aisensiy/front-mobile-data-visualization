@@ -78,7 +78,6 @@ angular.module('frontMobileDataVisualizationApp')
     });
 
     api.call_hist($routeParams.uid).success(function(data) {
-      console.log(data);
       var newdata = [];
       var i = 0, j = 0;
       while(i < 24) {
@@ -105,6 +104,10 @@ angular.module('frontMobileDataVisualizationApp')
 
     api.district_proba_matrix($routeParams.uid).success(function(data) {
       $scope.district_proba_matrix = data;
+    });
+
+    api.app_by_uid($routeParams.uid).success(function(data) {
+      $scope.app_by_uid = data;
     });
 
   }]);

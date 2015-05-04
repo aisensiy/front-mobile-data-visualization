@@ -101,6 +101,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       district_proba_matrix: function(uid) {
         return $http.get(root + '/district_proba_matrix/' + uid);
+      },
+      app_by_uid: function(uid) {
+        return $http.get(root + '/app_by_uid/' + uid);
       }
     }
   }]);

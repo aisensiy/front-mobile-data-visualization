@@ -61,7 +61,6 @@ angular.module('frontMobileDataVisualizationApp')
           var start = start_of_day(data[0].time),
               end = end_of_day(data[0].time);
 
-          console.log(start);
           var x = d3.time.scale().range([0, width]).domain([start, end]);
           var y = d3.scale.linear().range([height, 0]).domain([-1, 2.5]);
 
