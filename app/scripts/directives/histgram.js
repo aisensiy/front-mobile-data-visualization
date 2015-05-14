@@ -20,13 +20,13 @@ angular.module('frontMobileDataVisualizationApp')
 
         // A formatter for counts.
         var formatCount = d3.format(",.0f");
-        var barWidth = 30;
-        var gap = 5;
+        var barWidth = 20;
+        var gap = 3;
         var rng = +scope.range;
 
         var margin = {top: 10, right: 30, bottom: 30, left: 30},
             width = (barWidth + gap) * rng,
-            height = 250 - margin.top - margin.bottom;
+            height = 200 - margin.top - margin.bottom;
 
         var svg = d3.select(element[0]).append("svg")
           .attr("width", width + margin.left + margin.right)

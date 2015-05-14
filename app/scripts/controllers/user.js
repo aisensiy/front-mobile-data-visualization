@@ -118,4 +118,8 @@ angular.module('frontMobileDataVisualizationApp')
       $scope.app_by_uid = data;
     });
 
+    api.tag_proba_matrix($routeParams.uid).success(function(data) {
+      $scope.tag_proba_matrix = data;
+    });
+
   }]);
