@@ -93,8 +93,8 @@ angular.module('frontMobileDataVisualizationApp')
       speed_by_uid: function(uid) {
         return $http.get(root + '/speed_by_uid/' + uid);
       },
-      user_status: function(uid) {
-        return $http.get(root + '/user_status/' + uid);
+      user_status_proba: function(uid) {
+        return $http.get(root + '/user_status_proba/' + uid);
       },
       semantic_proba_matrix: function(uid) {
         return $http.get(root + '/semantic_proba_matrix/' + uid);

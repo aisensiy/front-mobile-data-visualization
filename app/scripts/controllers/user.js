@@ -29,7 +29,7 @@ angular.module('frontMobileDataVisualizationApp')
         return elem;
       });
     });
-    api.user_status($routeParams.uid).success(function(data) {
+    api.user_status_proba($routeParams.uid).success(function(data) {
       $scope.status_matrix = data;
     });
     api.proba_matrix($routeParams.uid).success(function(data) {
