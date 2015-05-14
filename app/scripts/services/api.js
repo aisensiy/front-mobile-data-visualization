@@ -107,6 +107,9 @@ angular.module('frontMobileDataVisualizationApp')
       },
       app_by_uid: function(uid) {
         return $http.get(root + '/app_by_uid/' + uid);
+      },
+      app_by_uid_with_condition: function(uid) {
+        return $http.get(root + '/app_by_uid_with_condition/' + uid);
       }
     }
   }]);
