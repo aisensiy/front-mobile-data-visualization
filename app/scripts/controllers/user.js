@@ -46,12 +46,6 @@ angular.module('frontMobileDataVisualizationApp')
     api.freq_seq($routeParams.uid).success(function(data) {
       $scope.freq_seqs = data;
     });
-    api.site_count($routeParams.uid).success(function(data) {
-      $scope.sites = data;
-    });
-    api.app_count($routeParams.uid).success(function(data) {
-      $scope.apps = data;
-    });
 
     // api.semantic_data($routeParams.uid).success(function(data) {
     //   $scope.semantic_data = data;
@@ -112,10 +106,6 @@ angular.module('frontMobileDataVisualizationApp')
 
     api.district_proba_matrix($routeParams.uid).success(function(data) {
       $scope.district_proba_matrix = data;
-    });
-
-    api.app_by_uid($routeParams.uid).success(function(data) {
-      $scope.app_by_uid = data;
     });
 
     api.tag_proba_matrix($routeParams.uid).success(function(data) {

@@ -48,6 +48,10 @@ angular
         templateUrl: 'views/test.html',
         controller: 'TestCtrl'
       })
+      .when('/app_attrs/:uid', {
+        templateUrl: 'views/app_attrs.html',
+        controller: 'AppAttrsCtrl'
+      })
       .otherwise({
         redirectTo: '/test'
       });
