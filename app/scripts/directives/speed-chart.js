@@ -28,8 +28,8 @@ angular.module('frontMobileDataVisualizationApp')
         }
 
         var margin = {top: 10, right: 30, bottom: 30, left: 30},
-            width = 500,
-            height = 150 - margin.top - margin.bottom;
+            width = 400,
+            height = 140 - margin.top - margin.bottom;
 
         var svg = d3.select(element[0]).append("svg")
           .attr("width", width + margin.left + margin.right)
