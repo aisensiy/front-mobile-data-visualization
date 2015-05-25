@@ -18,6 +18,13 @@ angular.module('frontMobileDataVisualizationApp')
         // A formatter for counts.
         var formatCount = d3.format(",.0f");
         var time_parse = d3.time.format('%Y%m%d%H%M%S').parse;
+        var weekends = {
+          1: true,
+          7: true, 8: true,
+          14: true, 15: true,
+          21: true, 22: true,
+          28: true, 29: true
+        };
 
         function start_of_day(string) {
           return time_parse(string.slice(0, 8) + '000000');
@@ -76,6 +83,7 @@ angular.module('frontMobileDataVisualizationApp')
             .call(yAxis)
             .append('text')
             .attr("y", 6)
+            .attr("class", function(d) { return (weekends[+data[0].time.slice(6, 8)] ? "weekend" : ""); })
             .text(data[0].time.slice(0, 8));
 
           svg.append("g")

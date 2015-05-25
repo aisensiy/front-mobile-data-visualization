@@ -24,7 +24,7 @@ angular.module('frontMobileDataVisualizationApp')
         var gap = 3;
         var rng = +scope.range;
 
-        var margin = {top: 10, right: 30, bottom: 30, left: 30},
+        var margin = {top: 10, right: 30, bottom: 30, left: 40},
             width = (barWidth + gap) * rng,
             height = 200 - margin.top - margin.bottom;
 

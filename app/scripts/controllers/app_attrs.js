@@ -19,6 +19,12 @@ angular.module('frontMobileDataVisualizationApp')
     api.app_by_uid_with_condition($routeParams.uid).success(function(data) {
       $scope.app_by_uid_with_condition = data;
     });
+    api.app_type_by_uid($routeParams.uid).success(function(data) {
+      $scope.app_type_by_uid = data;
+    });
+    api.app_type_by_uid_with_condition($routeParams.uid).success(function(data) {
+      $scope.app_type_by_uid_with_condition = data;
+    });
     api.site_count($routeParams.uid).success(function(data) {
       $scope.sites = data;
     });

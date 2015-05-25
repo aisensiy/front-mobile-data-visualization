@@ -14,6 +14,10 @@ text.axis-workweek {
   fill: #000;
 }
 
+text.weekend {
+  fill: red;
+}
+
 text.axis-worktime {
   fill: #000;
 }

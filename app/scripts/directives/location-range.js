@@ -71,6 +71,14 @@ angular.module('frontMobileDataVisualizationApp')
 
         var y = d3.scale.linear().domain([0, 24 * 60 - 1]).range([0, height]);
 
+        var weekends = {
+          1: true,
+          7: true, 8: true,
+          14: true, 15: true,
+          21: true, 22: true,
+          28: true, 29: true
+        };
+
         window.onresize = function() {
           scope.$apply();
         };
@@ -99,7 +107,8 @@ angular.module('frontMobileDataVisualizationApp')
                 .attr("x", function(d, i) { return i * gridWidth; })
                 .attr("y", 0)
                 .style("text-anchor", "middle")
-                .attr("transform", "translate(" + gridWidth / 2 + ", -6)");
+                .attr("transform", "translate(" + gridWidth / 2 + ", -6)")
+                .attr("class", function(d, i) { return (weekends[i] ? "weekend" : ""); });
 
           var time_labels = svg.selectAll('.timeLabel')
             .data(times)
