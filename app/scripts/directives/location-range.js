@@ -1,5 +1,10 @@
 'use strict';
 
+
+function loc2cls(str) {
+  return str.replace(/[\. ]/g, '_');
+}
+
 /**
  * @ngdoc directive
  * @name frontMobileDataVisualizationApp.directive:locationRange
@@ -45,7 +50,8 @@ angular.module('frontMobileDataVisualizationApp')
           var d3_category = [
             '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
             '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
-            '#f7acbc', '#444693', '#121a2a', '#45224a'
+            '#f7acbc', '#444693', '#121a2a', '#45224a', '#000000',
+            '#00ff00', '#0000ff'
           ];
 
           return d3_category[hashCode(location) % d3_category.length];
@@ -108,7 +114,7 @@ angular.module('frontMobileDataVisualizationApp')
                 .attr("y", 0)
                 .style("text-anchor", "middle")
                 .attr("transform", "translate(" + gridWidth / 2 + ", -6)")
-                .attr("class", function(d, i) { return (weekends[i] ? "weekend" : ""); });
+                .attr("class", function(d, i) { return (weekends[d] ? "weekend" : ""); });
 
           var time_labels = svg.selectAll('.timeLabel')
             .data(times)
@@ -129,7 +135,7 @@ angular.module('frontMobileDataVisualizationApp')
                 start_time: clock_to_num(elem.start_time),
                 end_time: clock_to_num(elem.end_time),
                 location: elem.location,
-                title: elem.start_time + '-' + elem.end_time
+                title: elem.start_time.slice(8) + '-' + elem.end_time.slice(8)
               };
             });
             svg.selectAll('.day' + date).data(one_day_data)
@@ -140,6 +146,7 @@ angular.module('frontMobileDataVisualizationApp')
               .attr('height', function(d) { return y(d.end_time) - y(d.start_time); })
               .attr('title', function(d) { return d.title; })
               .attr('fill', function(d) { return hashCategory(d.location); })
+              .attr('class', function(d) { return 'loc' + loc2cls(d.location); })
               .on('mouseover', function(d) {
                 d3.select(this).classed("cell-hover", true);
 
@@ -151,10 +158,13 @@ angular.module('frontMobileDataVisualizationApp')
                   .text(d.title + '\n' + d.location);
                 //Show the tooltip
                 d3.select("#tooltip").classed("hidden", false);
+
+                svg.selectAll('.loc' + loc2cls(d.location)).classed("highlight", true);
               })
               .on('mouseout', function(d) {
                 d3.select(this).classed("cell-hover",false);
                 d3.select("#tooltip").classed("hidden", true);
+                svg.selectAll('.loc' + loc2cls(d.location)).classed("highlight", false);
               });
           });
         };

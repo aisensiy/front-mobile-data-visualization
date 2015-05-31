@@ -21,7 +21,7 @@ var MapController = (function() {
 
     var curve = new BMapLib.CurveLine(
       points.map(function(point) { return new BMap.Point(point[0], point[1]); }),
-      {strokeColor: "#00BFFF", strokeWeight:6, strokeOpacity:0.3});
+      {strokeColor: "#FF0000", strokeWeight:6, strokeOpacity:0.5});
     map.addOverlay(curve);
 
     var bluemarker = new BMap.Icon(
